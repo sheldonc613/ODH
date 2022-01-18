@@ -99,14 +99,14 @@ class encn_Cambridge {
                         // make exmaple segement
                         let examps = defblock.querySelectorAll('.def-body .examp') || [];
                         if (examps.length > 0 && this.maxexample > 0) {
-                            definition += '<ul class="sents">';
+                            definition += '';
                             for (const [index, examp] of examps.entries()) {
                                 if (index > this.maxexample - 1) break; // to control only 2 example sentence.
                                 let eng_examp = T(examp.querySelector('.eg'));
                                 let chn_examp = T(examp.querySelector('.trans'));
-                                definition += `<li class='sent'><span class='eng_sent'>${eng_examp.replace(RegExp(expression, 'gi'),`<b>${expression}</b>`)}</span><span class='chn_sent'>${chn_examp}</span></li>`;
+                                definition += `<span class='eng_sent'>${eng_examp.replace(RegExp(expression, 'gi'),`<b>${expression}</b>`)}</span><span class='chn_sent'>${chn_examp}</span></li>`;
                             }
-                            definition += '</ul>';
+                            definition += '';
                         }
                         definition && definitions.push(definition);
                     }
