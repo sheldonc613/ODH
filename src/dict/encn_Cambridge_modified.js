@@ -1,5 +1,5 @@
 /* global api */
-class encn_Cambridge {
+class encn_Cambridge_modified {
     constructor(options) {
         this.options = options;
         this.maxexample = 2;
@@ -8,7 +8,7 @@ class encn_Cambridge {
 
     async displayName() {
         let locale = await api.locale();
-        if (locale.indexOf('CN') != -1) return '剑桥英汉双解(简体)';
+        if (locale.indexOf('CN') != -1) return '剑桥英汉双解 修改版(简体)'
         if (locale.indexOf('TW') != -1) return '劍橋英漢雙解(簡體)';
         return 'Cambridge EN->CN Dictionary (SC)';
     }
@@ -93,8 +93,7 @@ class encn_Cambridge {
                         let definition = '';
                         eng_tran = `<span class='eng_tran'>${eng_tran.replace(RegExp(expression, 'gi'),`<b>${expression}</b>`)}</span>`;
                         chn_tran = `<span class='chn_tran'>${chn_tran}</span>`;
-                        let tran = `<span class='tran'>${chn_tran}<br>${eng_tran}</span>`;
-                        definition += phrasehead ? `${phrasehead}${tran}` : `${pos}${tran}`;
+                        definition = `${pos}<span class="tran">${chn_tran}<br>${eng_tran}</span>`;
 
                         // make exmaple segement
                         let examps = defblock.querySelectorAll('.def-body .examp') || [];
