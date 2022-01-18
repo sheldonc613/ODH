@@ -162,7 +162,7 @@ class encn_Cambridge {
             audios[0] = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(expression)}&type=1`;
             audios[1] = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(expression)}&type=2`;
 
-            let definition = '<ul class="ec">';
+            let definition = '';
             for (const defNode of defNodes){
                 let pos = '';
                 let def = T(defNode);
@@ -172,9 +172,9 @@ class encn_Cambridge {
                     def = def.replace(pos, '');
                 }
                 pos = pos ? `<span class="pos simple">${pos}</span>`:'';
-                definition += `<li class="ec">${pos}<span class="ec_chn">${def}</span></li>`;
+                definition += `${pos}<span class="ec_chn">${def}</span>`;
             }
-            definition += '</ul>';
+            definition += '';
             let css = `
                 <style>
                     span.pos  {text-transform:lowercase; font-size:0.9em; margin-right:5px; padding:2px 4px; color:white; background-color:#0d47a1; border-radius:3px;}
