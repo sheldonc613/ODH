@@ -93,7 +93,7 @@ class encn_Cambridge {
                         let definition = '';
                         eng_tran = `<span class='eng_tran'>${eng_tran.replace(RegExp(expression, 'gi'),`<b>${expression}</b>`)}</span>`;
                         chn_tran = `<span class='chn_tran'>${chn_tran}</span>`;
-                        let tran = `<span class='tran'>${chn_tran}<br${eng_tran}</span>`;
+                        let tran = `<span class='tran'>${chn_tran}<br>${eng_tran}</span>`;
                         definition += phrasehead ? `${phrasehead}${tran}` : `${pos}${tran}`;
 
                         // make exmaple segement
