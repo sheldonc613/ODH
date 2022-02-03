@@ -74,9 +74,9 @@ class builtin_encn_Collins {
             let chn_tran = def.def_cn;
             let eng_tran = def.def_en;
             pos = pos ? `<span class="pos">${pos}</span>` : '';
-            chn_tran = chn_tran ? `<span class="chn_tran">${chn_tran}</span>` : '';
-            eng_tran = eng_tran ? `<span class="eng_tran">${eng_tran.replace(RegExp(expression, 'gi'),`<b>${expression}</b>`)}</span>` : '';
-            definition = `${pos}<span class="tran">${chn_tran}<br>${eng_tran}</span>`;
+            chn_tran = chn_tran ? `${chn_tran.replace(` `,``)}` : '';
+            eng_tran = eng_tran ? `${eng_tran.replace(RegExp(expression, 'gi'),`<b>${expression}</b>`)}` : '';
+            definition = `${pos}${chn_tran}<br>${eng_tran}`;
 
             // make exmaple sentence segement
             if (def.ext && def.ext.length > 0 && maxexample > 0) {
@@ -108,18 +108,7 @@ class builtin_encn_Collins {
 
     renderCSS() {
         let css = `
-            <style>
-                span.star {color: #FFBB00;}
-                span.cet  {margin: 0 3px;padding: 0 3px;font-weight: normal;font-size: 0.8em;color: white;background-color: #5cb85c;border-radius: 3px;}
-                span.pos  {text-transform:lowercase; font-size:0.9em; margin-right:5px; padding:2px 4px; color:white; background-color:#0d47a1; border-radius:3px;}
-                span.tran {margin:0; padding:0;}
-                span.eng_tran {margin-right:3px; padding:0;}
-                span.chn_tran {color:#0d47a1;}
-                ul.sents {font-size:0.8em; list-style:square inside; margin:3px 0;padding:5px;background:rgba(13,71,161,0.1); border-radius:5px;}
-                li.sent  {margin:0; padding:0;}
-                span.eng_sent {margin-right:5px;}
-                span.chn_sent {color:#0d47a1;}
-            </style>`;
+`;
         return css;
     }
 }
